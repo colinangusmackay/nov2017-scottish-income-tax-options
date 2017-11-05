@@ -44,6 +44,16 @@ $(function(){
                 {size:105710, rate:41},
                 {size:Number.MAX_SAFE_INTEGER, rate:50}
             ]
+        },{
+            id:"three",
+            bands: [
+                {size:personalAllowance, rate:0},
+                {size:12150,rate:20},
+                {size:20290,rate:21},
+                {size:30710, rate:41},
+                {size:75000, rate:42},
+                {size:Number.MAX_SAFE_INTEGER, rate:48}
+            ]
         }];
 
         for(var optionsIndex = 0; optionsIndex < options.length; optionsIndex++){
