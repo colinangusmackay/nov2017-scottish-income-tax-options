@@ -110,9 +110,13 @@ $(function(){
             $(totalId+" .yourTax").text("£"+totalTax.toFixed(2));
 
             var differenceFromStatusQuo = totalTax - statusQuo,
+                monthlyDifference = differenceFromStatusQuo / 12,
+                weeklyDifference = differenceFromStatusQuo / 52,
                 summaryPrefix = "#summary-"+idPrefix;
             $(summaryPrefix+" .yourTax").text("£"+totalTax.toFixed(2));
-            $(summaryPrefix+" .difference").text("£"+differenceFromStatusQuo.toFixed(2));
+            $(summaryPrefix+" .difference-annual").text("£"+differenceFromStatusQuo.toFixed(2));
+            $(summaryPrefix+" .difference-monthly").text("£"+monthlyDifference.toFixed(2));
+            $(summaryPrefix+" .difference-weekly").text("£"+weeklyDifference.toFixed(2));
 
             $(summaryPrefix).removeClass();
             if (differenceFromStatusQuo > 0)
