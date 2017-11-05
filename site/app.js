@@ -2,10 +2,6 @@ $(function(){
     $("#calculate").on("click", function(){
         var personalAllowance = parseInt($("#taxAllowance").val()),
             grossIncome = parseInt($("#grossIncome").val());
-
-        console.log("Personal Allowance is "+personalAllowance);
-        console.log("Gross Income is "+personalAllowance);
-
         updateOptions(personalAllowance, grossIncome);
     });
 
