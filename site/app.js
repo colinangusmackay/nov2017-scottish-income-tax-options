@@ -18,6 +18,14 @@ $(function(){
                 {size:107000, rate:40},
                 {size:Number.MAX_SAFE_INTEGER, rate:45}
             ]
+        },{
+            id:"one",
+            bands: [
+                {size:personalAllowance, rate:0},
+                {size:32440,rate:20},
+                {size:105710, rate:41},
+                {size:Number.MAX_SAFE_INTEGER, rate:46}
+            ]
         }];
 
         for(var optionsIndex = 0; optionsIndex < options.length; optionsIndex++){
