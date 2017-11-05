@@ -54,6 +54,17 @@ $(function(){
                 {size:75000, rate:42},
                 {size:Number.MAX_SAFE_INTEGER, rate:48}
             ]
+        },{
+            id:"four",
+            bands: [
+                {size:personalAllowance, rate:0},
+                {size:3150,rate:19},
+                {size:9000,rate:20},
+                {size:20290,rate:21},
+                {size:30710, rate:41},
+                {size:75000, rate:42},
+                {size:Number.MAX_SAFE_INTEGER, rate:50}
+            ]
         }];
 
         for(var optionsIndex = 0; optionsIndex < options.length; optionsIndex++){
