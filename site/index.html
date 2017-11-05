@@ -16,22 +16,41 @@
     <form>
         <div class="form-group">
             <label for="taxAllowance">Tax Free Allowance:</label>
-            <input id="taxAllowance" class="form-control" type="number" aria-describedby="taxAllowanceHelp" placeholder="Tax Free Allowance"/>
+            <div class="input-group"><span class="input-group-addon">£</span><input id="taxAllowance" class="form-control" type="number" aria-describedby="taxAllowanceHelp" placeholder="Tax Free Allowance"/></div>
             <small id="taxAllowanceHelp" class="form-text text-muted">This is the amount you get tax free each year. It is usually the digits from your tax code multiplied by 10. e.g. S1025L = £10250 tax free allowance.</small>
         </div>
         <div class="form-group">
             <label for="grossIncome">Gross Income:</label>
-            <input id="grossIncome" class="form-control" type="number" aria-describedby="grossIncomeHelp" placeholder="Gross Income"/>
+            <div class="input-group"><span class="input-group-addon">£</span><input id="grossIncome" class="form-control" type="number" aria-describedby="grossIncomeHelp" placeholder="Gross Income"/></div>
             <small id="grossIncomeHelp" class="form-text text-muted">This is the amount your earn before tax is taken from you.</small>
         </div>
+        <button type="button" id="calculate" class="btn btn-primary">Calculate</button>
     </form>
-    <button class="btn btn-primary">Calculate</button>
+
+    <div class="row">
+        <h2>Status Quo</h2>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr><td>Band</td><td>Taxable Income</td><td>Rate</td><td>Your Income</td><td>Your tax</td></tr>
+            </thead>
+            <tbody class="table-striped table-hover">
+                <tr id="sq-0"><td>Personal Allowance</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+                <tr id="sq-1"><td>Basic Rate</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+                <tr id="sq-2"><td>Higher Rate</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+                <tr id="sq-3"><td>Additional Rate</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+                <tr id="sq-total" class="table-info"><td><strong>Total</strong></td><td></td><td></td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            </tbody>
+        </table>
+    </div>
 </div>
+
+
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+<script src="./app.js"></script>
 </body>
 </html>
