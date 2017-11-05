@@ -10,7 +10,7 @@ $(function(){
     });
 
     function updateOptions(personalAllowance, grossIncome){
-        options = [{
+        var options = [{
             id:"sq",
             bands: [
                 {size:personalAllowance, rate:0},
@@ -67,6 +67,7 @@ $(function(){
             ]
         }];
 
+        var statusQuo = 0;
         for(var optionsIndex = 0; optionsIndex < options.length; optionsIndex++){
 
             var option = options[optionsIndex],
@@ -94,17 +95,30 @@ $(function(){
                     $(bandId+" .taxable").text("£"+bandLow+" to £"+bandHigh);
 
                 $(bandId+" .rate").text(band.rate+"%");
-                $(bandId+" .yourIncome").text("£"+taxableIncomeInBand);
-                $(bandId+" .yourTax").text("£"+taxInBand);
+                $(bandId+" .yourIncome").text("£"+taxableIncomeInBand.toFixed(2));
+                $(bandId+" .yourTax").text("£"+taxInBand.toFixed(2));
 
                 remainingIncome = remainingIncome - taxableIncomeInBand;
                 bandLow = bandHigh;
                 totalTax += taxInBand;
             }
 
+            if (idPrefix === "sq")
+                statusQuo = totalTax;
             var totalId = "#"+idPrefix+"-total";
-            $(totalId+" .yourIncome").text("£"+grossIncome);
-            $(totalId+" .yourTax").text("£"+totalTax);
+            $(totalId+" .yourIncome").text("£"+grossIncome.toFixed(2));
+            $(totalId+" .yourTax").text("£"+totalTax.toFixed(2));
+
+            var differenceFromStatusQuo = totalTax - statusQuo,
+                summaryPrefix = "#summary-"+idPrefix;
+            $(summaryPrefix+" .yourTax").text("£"+totalTax.toFixed(2));
+            $(summaryPrefix+" .difference").text("£"+differenceFromStatusQuo.toFixed(2));
+
+            $(summaryPrefix).removeClass();
+            if (differenceFromStatusQuo > 0)
+                $(summaryPrefix).addClass("table-danger");
+            else if (differenceFromStatusQuo < 0)
+                $(summaryPrefix).addClass("table-success");
         }
     }
 });
