@@ -4,8 +4,8 @@
   "description": "A simple experiment using the income tax options to learn about webpack",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --config webpack.config.js",
-    "watch": "webpack --watch --config webpack.config.js"
+    "start": "webpack-dev-server --open",
+    "watch": "webpack --watch --progress --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,8 @@
   "homepage": "https://github.com/colinangusmackay/nov2017-scottish-income-tax-options#readme",
   "devDependencies": {
     "clean-webpack-plugin": "^0.1.17",
-    "webpack": "^3.8.1"
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.4"
   },
   "dependencies": {
     "jquery": "^3.2.1"
