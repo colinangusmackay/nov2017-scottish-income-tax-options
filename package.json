@@ -4,7 +4,8 @@
   "description": "A simple experiment using the income tax options to learn about webpack",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --config webpack.config.js"
+    "start": "webpack --config webpack.config.js",
+    "watch": "webpack --watch --config webpack.config.js"
   },
   "repository": {
     "type": "git",
