@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1><%= htmlWebpackPlugin.options.title %></h1>
+
+    <form>
+        <div class="form-group">
+            <label for="taxAllowance">Tax Free Allowance:</label>
+            <div class="input-group"><span class="input-group-addon">£</span><input id="taxAllowance" class="form-control" type="number" aria-describedby="taxAllowanceHelp" placeholder="Tax Free Allowance"/></div>
+            <small id="taxAllowanceHelp" class="form-text text-muted">This is the amount you get tax free each year. It is usually the digits from your tax code multiplied by 10. e.g. S1025L = £10250 tax free allowance.</small>
+        </div>
+        <div class="form-group">
+            <label for="grossIncome">Gross Income:</label>
+            <div class="input-group"><span class="input-group-addon">£</span><input id="grossIncome" class="form-control" type="number" aria-describedby="grossIncomeHelp" placeholder="Gross Income"/></div>
+            <small id="grossIncomeHelp" class="form-text text-muted">This is the amount your earn before tax is taken from you.</small>
+        </div>
+        <button type="button" id="calculate" class="btn btn-primary">Calculate</button>
+    </form>
+
+    <div class="row">
+        <h2>Status Quo</h2>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr><td>Band</td><td>Taxable Income</td><td>Rate</td><td>Your Income</td><td>Your tax</td></tr>
+            </thead>
+            <tbody class="table-striped table-hover">
+                <tr id="sq-0"><td>Personal Allowance</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+                <tr id="sq-1"><td>Basic Rate</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+                <tr id="sq-2"><td>Higher Rate</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+                <tr id="sq-3"><td>Additional Rate</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+                <tr id="sq-total" class="table-info"><td><strong>Total</strong></td><td></td><td></td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row">
+        <h2>Option One</h2>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <tr><td>Band</td><td>Taxable Income</td><td>Rate</td><td>Your Income</td><td>Your tax</td></tr>
+            </thead>
+            <tbody class="table-striped table-hover">
+            <tr id="one-0"><td>Personal Allowance</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            <tr id="one-1"><td>Basic Rate</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            <tr id="one-2"><td>Higher Rate</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            <tr id="one-3"><td>Additional Rate</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            <tr id="one-total" class="table-info"><td><strong>Total</strong></td><td></td><td></td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row">
+        <h2>Option Two A</h2>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <tr><td>Band</td><td>Taxable Income</td><td>Rate</td><td>Your Income</td><td>Your tax</td></tr>
+            </thead>
+            <tbody class="table-striped table-hover">
+            <tr id="two-a-0"><td>Personal Allowance</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            <tr id="two-a-1"><td>Band One</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            <tr id="two-a-2"><td>Band Two</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            <tr id="two-a-3"><td>Band Three</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            <tr id="two-a-4"><td>Band Four</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            <tr id="two-a-total" class="table-info"><td><strong>Total</strong></td><td></td><td></td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row">
+        <h2>Option Two B</h2>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <tr><td>Band</td><td>Taxable Income</td><td>Rate</td><td>Your Income</td><td>Your tax</td></tr>
+            </thead>
+            <tbody class="table-striped table-hover">
+            <tr id="two-b-0"><td>Personal Allowance</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            <tr id="two-b-1"><td>Band One</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            <tr id="two-b-2"><td>Band Two</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            <tr id="two-b-3"><td>Band Three</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            <tr id="two-b-4"><td>Band Four</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            <tr id="two-b-total" class="table-info"><td><strong>Total</strong></td><td></td><td></td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row">
+        <h2>Option Three</h2>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <tr><td>Band</td><td>Taxable Income</td><td>Rate</td><td>Your Income</td><td>Your tax</td></tr>
+            </thead>
+            <tbody class="table-striped table-hover">
+            <tr id="three-0"><td>Personal Allowance</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            <tr id="three-1"><td>Band One</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            <tr id="three-2"><td>Band Two</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            <tr id="three-3"><td>Band Three</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            <tr id="three-4"><td>Band Four</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            <tr id="three-5"><td>Band Five</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            <tr id="three-total" class="table-info"><td><strong>Total</strong></td><td></td><td></td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row">
+        <h2>Option Four</h2>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <tr><td>Band</td><td>Taxable Income</td><td>Rate</td><td>Your Income</td><td>Your tax</td></tr>
+            </thead>
+            <tbody class="table-striped table-hover">
+            <tr id="four-0"><td>Personal Allowance</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            <tr id="four-1"><td>Band One</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            <tr id="four-2"><td>Band Two</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            <tr id="four-3"><td>Band Three</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            <tr id="four-4"><td>Band Four</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            <tr id="four-5"><td>Band Five</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            <tr id="four-6"><td>Band Six</td><td class="taxable">£xxx</td><td class="rate">x%</td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            <tr id="four-total" class="table-info"><td><strong>Total</strong></td><td></td><td></td><td class="yourIncome">£xxx</td><td class="yourTax">£xxx</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row">
+        <h2>Summary</h2>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <tr><td rowspan="2">Option</td><td rowspan="2">Your tax</td><td colspan="3">Difference from status quo</td></tr>
+            <tr><td>Annual</td><td>Monthly</td><td>Weekly</td></tr>
+            </thead>
+            <tbody class="table-striped table-hover">
+            <tr id="summary-sq"><td>Status Quo</td><td class="yourTax">£xxx</td><td class="difference-annual">£xxx</td><td class="difference-monthly">£xxx</td><td class="difference-weekly">£xxx</td></tr>
+            <tr id="summary-one"><td>Option One</td><td class="yourTax">£xxx</td><td class="difference-annual">£xxx</td><td class="difference-monthly">£xxx</td><td class="difference-weekly">£xxx</td></tr>
+            <tr id="summary-two-a"><td>Option Two A</td><td class="yourTax">£xxx</td><td class="difference-annual">£xxx</td><td class="difference-monthly">£xxx</td><td class="difference-weekly">£xxx</td></tr>
+            <tr id="summary-two-b"><td>Option Two B</td><td class="yourTax">£xxx</td><td class="difference-annual">£xxx</td><td class="difference-monthly">£xxx</td><td class="difference-weekly">£xxx</td></tr>
+            <tr id="summary-three"><td>Option Three</td><td class="yourTax">£xxx</td><td class="difference-annual">£xxx</td><td class="difference-monthly">£xxx</td><td class="difference-weekly">£xxx</td></tr>
+            <tr id="summary-four"><td>Option Four</td><td class="yourTax">£xxx</td><td class="difference-annual">£xxx</td><td class="difference-monthly">£xxx</td><td class="difference-weekly">£xxx</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</body>
+</html>
