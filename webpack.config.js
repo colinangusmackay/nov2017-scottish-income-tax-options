@@ -6,13 +6,20 @@ module.exports = {
   entry: './src/index.js',
   devtool: 'source-map',
   devServer: {
-      contentBase: './dist'
+      contentBase: path.resolve(__dirname, 'dist')
   },
   plugins: [
-      new CleanWebpackPlugin(['dist']),
+      new CleanWebpackPlugin([path.resolve(__dirname, 'dist')]),
       new HtmlWebpackPlugin({
         title: 'November 2017 Scottish Government Tax Proposals',
-        template: 'src/index.html'
+        template: 'src/index.html',
+        minify: {
+            collapseWhitespace: true,
+            collapseInlineTagWhitespace: true,
+            removeAttributeQuotes: true,
+            removeComments: true,
+            removeRedundantAttributes: true
+        }
       })
   ],
   output: {
