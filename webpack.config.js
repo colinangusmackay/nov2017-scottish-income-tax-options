@@ -2,6 +2,7 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -11,6 +12,7 @@ module.exports = {
   },
   plugins: [
       new CleanWebpackPlugin([path.resolve(__dirname, 'dist')]),
+      new UglifyJSPlugin(),
       new CopyWebpackPlugin([
           {from: 'node_modules/bootstrap/dist/js/*', to: 'js/[name].[ext]'},
           {from: 'node_modules/bootstrap/dist/css/*', to:'css/[name].[ext]'}
