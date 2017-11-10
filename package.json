@@ -18,5 +18,8 @@
   "homepage": "https://github.com/colinangusmackay/nov2017-scottish-income-tax-options#readme",
   "devDependencies": {
     "webpack": "^3.8.1"
+  },
+  "dependencies": {
+    "jquery": "^3.2.1"
   }
 }
