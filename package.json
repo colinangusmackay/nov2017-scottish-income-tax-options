@@ -1,0 +1,22 @@
+{
+  "name": "nov2017-scottish-income-tax-options",
+  "version": "1.0.0",
+  "description": "A simple experiment using the income tax options to learn about webpack",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/colinangusmackay/nov2017-scottish-income-tax-options.git"
+  },
+  "author": "Colin Angus Mackay",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/colinangusmackay/nov2017-scottish-income-tax-options/issues"
+  },
+  "homepage": "https://github.com/colinangusmackay/nov2017-scottish-income-tax-options#readme",
+  "devDependencies": {
+    "webpack": "^3.8.1"
+  }
+}
